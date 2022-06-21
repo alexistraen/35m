@@ -47,7 +47,7 @@ require_once "../Controllers/dashboard-controller.php";
 
         <div class="container-large-responsive">
 
-        <h1 class="title-custom">Tableau de bord</h1>
+            <h1 class="title-custom">Tableau de bord</h1>
 
             <div id="block-responsive">
 

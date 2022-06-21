@@ -4,6 +4,7 @@ session_start();
 
 require_once "../Models/Database.php";
 require_once "../Models/Movies.php";
+require_once "../Models/Users.php";
 require_once "../includes/common_functions.php";
 
 if (isset($_GET["film"]) && isset($_GET["title"])) {
@@ -35,4 +36,11 @@ if (isset($_GET["film"]) && isset($_GET["title"])) {
     }
 } else {
     header("Location: movies.php");
+}
+
+if (isset($_SESSION["userAccount"])) {
+    if (!isset($getSeenList)) {
+        $user = new Users();
+        $getSeenList = $user->getSeenListId($_SESSION["userAccount"]["id"]);
+    }
 }

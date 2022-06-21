@@ -36,6 +36,15 @@ require_once "../Controllers/movie-controller.php";
 
                 <div class="movie-details-content-2">
                     <h1 class=text-center><?= $movieInformations["movie_title"] ?></h1>
+
+                    <?php
+                                if ($user->userHasSeenMovie($getSeenList["user_list_id"], $securedId)) {
+                                ?>
+                                    <p class="add-movie-button-2">&#10084;</p>
+                                <?php
+                                }
+                                ?>
+
                     <div class="container-type-duration-movie">
                         <h2 class="text-center movie-details-font-size"> <?= $movieInformations["movie_gender"] ?></h2>
                         <p class="text-center movie-details-font-size"><?= " <i class=\"far fa-clock movie-details-symbol-gold\"></i> " . $movieInformations["movie_duration"] ?></p>

@@ -50,7 +50,7 @@ require_once "../includes/common_functions.php";
                                 <?php
                                 if ($user->userHasSeenMovie($getSeenList["user_list_id"], $value["movie_id"])) {
                                 ?>
-                                    <button type="button" value="<?= $value["movie_id"] ?>" class="add-movie-button">&#10004;</button>
+                                    <button type="button" value="<?= $value["movie_id"] ?>" class="add-movie-button">&#10084;</button>
                                 <?php
                                 } else {
                                 ?>
@@ -81,7 +81,7 @@ require_once "../includes/common_functions.php";
             if (isset($totalPages)) {
                 if ($actualPage != 1) {
             ?>
-                    <a class="previousNextPages" href="movies?page=<?= $actualPage > 1 ? $actualPage - 1 : 1 ?>"><i class="fas fa-chevron-left"></i></a>
+                    <a class="previousNextPages" href="movies?page=<?= $actualPage > 1 ? $actualPage - 1 : 1 ?>">Précédent</a>
                     <?php
                 }
                 for ($page = $actualPage - $sidePages; $page < $actualPage; $page++) {
@@ -106,7 +106,7 @@ require_once "../includes/common_functions.php";
 
                 if ($actualPage != $totalPages) {
                     ?>
-                    <a class="previousNextPages" href="movies?page=<?= $actualPage < $totalPages ? $actualPage + 1 : $totalPages ?>"><i class="fas fa-chevron-right"></i></a>
+                    <a class="previousNextPages" href="movies?page=<?= $actualPage < $totalPages ? $actualPage + 1 : $totalPages ?>">Suivant</a>
             <?php
                 }
             }
