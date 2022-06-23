@@ -4,7 +4,7 @@ session_start();
 
 require_once "../Models/Database.php";
 require_once "../Models/Users.php";
-require_once "../Models/Lists.php";
+require_once "../Models/UserMovies.php";
 
 if (isset($_SESSION["userAccount"])) {
     header("Location: logout.php");

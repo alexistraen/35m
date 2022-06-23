@@ -1,6 +1,6 @@
 <?php
 
-require_once "../Controllers/lists-controller.php";
+require_once "../Controllers/my-movies-controller.php";
 
 ?>
 
@@ -14,7 +14,7 @@ require_once "../Controllers/lists-controller.php";
 
     <link href="../assets/css/style.css" rel="stylesheet">
 
-    <title>35M - Listes</title>
+    <title>35M - Mes films</title>
 </head>
 
 <body>
@@ -24,26 +24,15 @@ require_once "../Controllers/lists-controller.php";
 
         <div class="container-large-responsive">
 
-            <h1 class="title-custom">Gestion des listes</h1>
+            <h1 class="title-custom">Mes films</h1>
 
             <div id="block-responsive">
 
                 <div class="dashboard-block">
 
-                    <h2 class="margin-bot"><i class="fas fa-stream"></i> Mes listes</h2>
-
-                    <?php
-                    if (!empty($userLists)) {
-                        
-                        foreach ($userLists as $key => $value) {
-                    ?>
-                            <p class="list-name">
-                                <a href="list.php?list=<?= $value["user_list_id"] ?>"><i class="fas fa-angle-right"></i> <?= $value["user_list_name"] ?></a>
-                            </p>
-                    <?php
-                        }
-                    }
-                    ?>
+                    <p class="list-name">
+                        <a href="liked-movies.php?list=<?= $likedMovies ?>"><i class="fas fa-heart"></i> Coups de coeur</a>
+                    </p>
 
                 </div>
 
@@ -52,7 +41,9 @@ require_once "../Controllers/lists-controller.php";
 
                 <div class="dashboard-block">
 
-                    <h2><i class="fas fa-plus-circle"></i> Ajouter une liste</h2>
+                    <p class="list-name">
+                        <a href="liked-movies.php?list=<?= $toWatchMovies ?>"><i class="fas fa-clock"></i> À regarder</a>
+                    </p>
 
                 </div>
             </div>

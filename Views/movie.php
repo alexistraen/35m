@@ -38,12 +38,14 @@ require_once "../Controllers/movie-controller.php";
                     <h1 class=text-center><?= $movieInformations["movie_title"] ?></h1>
 
                     <?php
-                                if ($user->userHasSeenMovie($getSeenList["user_list_id"], $securedId)) {
-                                ?>
-                                    <p class="add-movie-button-2">&#10084;</p>
-                                <?php
-                                }
-                                ?>
+                    if (isset($_SESSION["userAccount"])) {
+                        if ($user->userHasSeenMovie($getSeenList["user_list_id"], $securedId)) {
+                    ?>
+                            <p class="add-movie-button-2">&#10084;</p>
+                    <?php
+                        }
+                    }
+                    ?>
 
                     <div class="container-type-duration-movie">
                         <h2 class="text-center movie-details-font-size"> <?= $movieInformations["movie_gender"] ?></h2>

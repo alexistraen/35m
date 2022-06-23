@@ -1,5 +1,4 @@
 RewriteEngine on
 
 RewriteRule root index.php
-RewriteRule ^movie/([0-9]+)-([a-zA-Z0-9_]+)$ Views/movie.php?film=$1&title=$2
 RewriteRule ^([a-z-]+)$ Views/$1.php

@@ -1,7 +1,6 @@
 <?php
 
 require_once "../Controllers/movies-controller.php";
-require_once "../includes/common_functions.php";
 
 ?>
 
@@ -38,7 +37,7 @@ require_once "../includes/common_functions.php";
                         <p class="card-year"><?= date("Y", strtotime($value["movie_release_date"])) ?></p>
 
                         <div class="movie-picture-container">
-                            <a href="../movie/<?= $value["movie_id"] . "-" . cleanMovieTitleUrl($value["movie_title"])?>"><img src="../uploads/affiches/<?= $value["movie_picture"] ?>" alt="Affiche de <?= $value["movie_title"] ?>"></a>
+                            <a href="../movie?film=<?= $value["movie_id"]?>"><img src="../uploads/affiches/<?= $value["movie_picture"] ?>" alt="Affiche de <?= $value["movie_title"] ?>"></a>
                         </div>
 
                         <?php

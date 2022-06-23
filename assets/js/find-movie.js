@@ -24,7 +24,7 @@ findMovie.addEventListener("keyup", async function () {
 
                 <div class="movie-find-content">
 
-                    <a href="../movie/${movie["movie_id"]}-${movie["title_url"]}">${movie["movie_title"]} (${movie["movie_release_date"].slice(-10, -6)})</a>
+                    <a href="../movie?film=${movie["movie_id"]}">${movie["movie_title"]} (${movie["movie_release_date"].slice(-10, -6)})</a>
                     <p class="margin-top">${movie["movie_duration"]} / ${movie["movie_gender"]}</p>
                     <p>${movie["movie_nationality"]}</p>
 

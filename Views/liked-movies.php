@@ -1,7 +1,6 @@
 <?php
 
-require_once "../Controllers/list-controller.php";
-require_once "../includes/common_functions.php";
+require_once "../Controllers/liked-movies-controller.php";
 
 ?>
 
@@ -15,7 +14,7 @@ require_once "../includes/common_functions.php";
 
     <link href="../assets/css/style.css" rel="stylesheet">
 
-    <title>35M - <?= $listName["user_list_name"] ?></title>
+    <title>35M - Coups de coeur</title>
 </head>
 
 <body>
@@ -28,7 +27,7 @@ require_once "../includes/common_functions.php";
 
             <button class="return-movie-details" onclick="goBack()"><i class="fas fa-angle-left"></i> Retour</button>
 
-            <h1 class="text-center margin-top-2"><?= $listName["user_list_name"] ?></h1>
+            <h1 class="text-center margin-top-2"><i class="fas fa-heart"></i> Coups de coeur</h1>
 
         </div>
 
@@ -44,7 +43,7 @@ require_once "../includes/common_functions.php";
                         <p class="card-year"><?= date("Y", strtotime($value["movie_release_date"])) ?></p>
 
                         <div class="movie-picture-container">
-                            <a href="../movie/<?= $value["movie_id"] . "-" . cleanMovieTitleUrl($value["movie_title"])?>"><img src="../uploads/affiches/<?= $value["movie_picture"] ?>" alt="Affiche de <?= $value["movie_title"] ?>"></a>
+                            <a href="../movie?film=<?= $value["movie_id"]?>"><img src="../uploads/affiches/<?= $value["movie_picture"] ?>" alt="Affiche de <?= $value["movie_title"] ?>"></a>
                         </div>
 
                         <p class="movie-card-title p-movie-list"><?= $value["movie_title"] ?></p>

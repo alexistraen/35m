@@ -293,7 +293,7 @@ class Users extends Database {
     }
 
     public function getSeenListId(int $userAccountId) {
-        $listIdQuery = "SELECT `user_list_id` FROM `35m_user_lists` WHERE `account_id` = :account_id AND `user_list_name` = 'Films vus';";
+        $listIdQuery = "SELECT `user_list_id` FROM `35m_user_lists` WHERE `account_id` = :account_id AND `user_list_name` = 'likedMovies';";
         $buildlistIdQuery = parent::getDb()->prepare($listIdQuery);
         $buildlistIdQuery->bindValue("account_id", $userAccountId, PDO::PARAM_INT);
         $buildlistIdQuery->execute();

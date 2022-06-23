@@ -80,29 +80,51 @@ class UserLists extends Database
 
     public function newUserDefaultLists(int $account_id)
     {
-        $query = "INSERT INTO `35m_user_lists` (`user_list_name`, `account_id`) VALUES ('Films vus', :account_id);";
+        $query = "INSERT INTO `35m_user_lists` (`user_list_name`, `account_id`) VALUES ('likedMovies', :account_id), ('toWatchMovies', :account_id);";
         $buildQuery = parent::getDb()->prepare($query);
         $buildQuery->bindValue("account_id", $account_id);
         return $buildQuery->execute();
     }
 
     /**
-     * Method for get all the lists of an user by his user id
+     * Method for get liked movies id list by user id
      * 
      * @param int
      * @return array|boolean
      */
 
-    public function displayUserLists(int $account_id)
+    public function getLikedMoviesId(int $account_id)
     {
-        $query = "SELECT `user_list_id`, `user_list_name` FROM `35m_user_lists` WHERE `account_id` = :account_id;";
+        $query = "SELECT `user_list_id`, `user_list_name` FROM `35m_user_lists` WHERE `account_id` = :account_id AND `user_list_name` = 'likedMovies';";
         $buildQuery = parent::getDb()->prepare($query);
         $buildQuery->bindValue("account_id", $account_id, PDO::PARAM_INT);
         $buildQuery->execute();
-        $resultQuery = $buildQuery->fetchAll(PDO::FETCH_ASSOC);
+        $resultQuery = $buildQuery->fetch(PDO::FETCH_ASSOC);
 
         if (!empty($resultQuery)) {
-            return $resultQuery;
+            return $resultQuery["user_list_id"];
+        } else {
+            return false;
+        }
+    }
+
+    /**
+     * Method for get to watch movies id list by user id
+     * 
+     * @param int
+     * @return array|boolean
+     */
+
+    public function getToWatchMoviesId(int $account_id)
+    {
+        $query = "SELECT `user_list_id`, `user_list_name` FROM `35m_user_lists` WHERE `account_id` = :account_id AND `user_list_name` = 'toWatchMovies';";
+        $buildQuery = parent::getDb()->prepare($query);
+        $buildQuery->bindValue("account_id", $account_id, PDO::PARAM_INT);
+        $buildQuery->execute();
+        $resultQuery = $buildQuery->fetch(PDO::FETCH_ASSOC);
+
+        if (!empty($resultQuery)) {
+            return $resultQuery["user_list_id"];
         } else {
             return false;
         }

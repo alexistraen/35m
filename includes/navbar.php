@@ -9,7 +9,7 @@
                 <?php
                 if (isset($_SESSION["userAccount"]["id"])) {
                 ?>
-                    <li><a class="navItem" href="../Views/lists.php">Mes listes</a></li>
+                    <li><a class="navItem" href="../Views/my-movies.php">Mes films</a></li>
                     <li><a class="navItem" href="../Views/account.php">Mon compte</a></li>
 
                     <?php
