@@ -957,6 +957,12 @@ input[type=file]::-webkit-file-upload-button:hover {
     transition: 0.2s;
 }
 
+.hidden-class {
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s 0.3s, opacity 0.3s linear;
+}
+
 .movie-card:hover {
     transform: scale(1.02);
 }
@@ -1191,15 +1197,21 @@ input[type=file]::-webkit-file-upload-button:hover {
     transition: 0.3s;
 }
 
-/*
-.add-movie-button:hover {
+.remove-to-watch-movie {
+    width: 100%;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-top: 0.3rem;
+    padding: 0.1rem 0;
+    border: none;
     background-color: #312f3f;
+    border-radius: 1rem;
+    transition: 0.3s;
 }
 
-.remove-movie-button:hover {
-    background-color: #0eaa6c;
+.remove-to-watch-movie:hover {
+    background-color: #801628;
 }
-*/
 
 /* List page */
 

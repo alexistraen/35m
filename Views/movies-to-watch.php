@@ -49,6 +49,8 @@ require_once "../Controllers/movies-to-watch-controller.php";
                         <p class="movie-card-title p-movie-list"><?= $value["movie_title"] ?></p>
                         <p class="movie-card-add-date">Ajouté le <?= date("d-m-y", strtotime($value["movie_add_date"])) ?></p>
 
+                        <button id="<?= $value["movie_id"]?>" class="remove-to-watch-movie">&#10006;</button>
+
                     </div>
 
             <?php
@@ -65,6 +67,7 @@ require_once "../Controllers/movies-to-watch-controller.php";
     <script src="https://kit.fontawesome.com/1fff42e298.js" crossorigin="anonymous"></script>
     <script src="../assets/js/script.js"></script>
     <script src="../assets/js/find-movie.js"></script>
+    <script src="../assets/js/remove-to-watch-movie.js"></script>
 
 </body>
 
