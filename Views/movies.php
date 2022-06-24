@@ -37,7 +37,7 @@ require_once "../Controllers/movies-controller.php";
                         <p class="card-year"><?= date("Y", strtotime($value["movie_release_date"])) ?></p>
 
                         <div class="movie-picture-container">
-                            <a href="../movie?film=<?= $value["movie_id"]?>"><img src="../uploads/affiches/<?= $value["movie_picture"] ?>" alt="Affiche de <?= $value["movie_title"] ?>"></a>
+                            <a href="../movie?film=<?= $value["movie_id"] ?>"><img src="../uploads/affiches/<?= $value["movie_picture"] ?>" alt="Affiche de <?= $value["movie_title"] ?>"></a>
                         </div>
 
                         <?php
@@ -54,6 +54,15 @@ require_once "../Controllers/movies-controller.php";
                                 } else {
                                 ?>
                                     <button type="button" value="<?= $value["movie_id"] ?>" class="remove-movie-button">&#10006;</button>
+                                <?php
+                                }
+                                if ($user->userHasSeenMovie($getToWatchList, $value["movie_id"])) {
+                                ?>
+                                    <button type="button" value="<?= $value["movie_id"] ?>" class="to-watch-movie-button-remove">&#10038;</button>
+                                <?php
+                                } else {
+                                ?>
+                                    <button type="button" value="<?= $value["movie_id"] ?>" class="to-watch-movie-button-add">&#10029;</button>
                                 <?php
                                 }
                                 ?>
@@ -120,6 +129,7 @@ require_once "../Controllers/movies-controller.php";
     <script src="../assets/js/script.js"></script>
     <script src="../assets/js/find-movie.js"></script>
     <script src="../assets/js/add-remove-seen-movie.js"></script>
+    <script src="../assets/js/add-remove-to-watch-movie.js"></script>
 </body>
 
 </html>

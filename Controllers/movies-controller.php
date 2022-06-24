@@ -5,6 +5,7 @@ session_start();
 require_once "../Models/Database.php";
 require_once "../Models/Movies.php";
 require_once "../Models/Users.php";
+require_once "../Models/UserMovies.php";
 
 $movies = new Movies();
 
@@ -44,5 +45,9 @@ if (isset($_SESSION["userAccount"])) {
     if (!isset($getSeenList)) {
         $user = new Users();
         $getSeenList = $user->getSeenListId($_SESSION["userAccount"]["id"]);
+    }
+    if (!isset($getToWatchList)) {
+        $userLists = new UserLists();
+        $getToWatchList = $userLists->getToWatchMoviesId($_SESSION["userAccount"]["id"]);
     }
 }

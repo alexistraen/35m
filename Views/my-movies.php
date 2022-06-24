@@ -42,7 +42,7 @@ require_once "../Controllers/my-movies-controller.php";
                 <div class="dashboard-block">
 
                     <p class="list-name">
-                        <a href="liked-movies.php?list=<?= $toWatchMovies ?>"><i class="fas fa-clock"></i> À regarder</a>
+                        <a href="movies-to-watch.php?list=<?= $toWatchMovies ?>"><i class="fas fa-clock"></i> À regarder</a>
                     </p>
 
                 </div>
